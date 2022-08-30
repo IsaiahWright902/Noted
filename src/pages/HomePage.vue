@@ -38,8 +38,8 @@
       </div>
     </div>
 
-    <div class="row">
-      {{ notes }}
+    <div class="row pt-2">
+      <Note v-for="note in notes" :key="note.id" :note="note" />
     </div>
   </div>
 </template>
@@ -50,10 +50,12 @@ import { noteService } from "../services/NoteService";
 import { AppState } from "../AppState";
 
 import AddNote from "../components/AddNote.vue";
+import Note from "../components/Note.vue";
 export default {
   name: "Home",
   components: {
     AddNote,
+    Note,
   },
   setup() {
     const state = reactive({

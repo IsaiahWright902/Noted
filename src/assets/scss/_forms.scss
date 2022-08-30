@@ -22,6 +22,28 @@
   }
 }
 
+.form-control-sm {
+  border-radius: none;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+  height: 1.5rem;
+  font-size: 18px;
+  background-color: white;
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid $green-light;
+  }
+  &:active {
+    outline: none;
+  }
+  @include respond(tablet) {
+    margin-top: 20px;
+  }
+  @include respond(phone) {
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
 label {
   font-weight: 300;
   font-size: 18px;
