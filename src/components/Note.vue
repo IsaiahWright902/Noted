@@ -1,10 +1,15 @@
 <template>
-  <div class="col-xl-4 col-lg-6 col-sm-6 pt-3 smooth">
-    <div class="note" data-cy="note-element">
+  <div class="col-xl-4 col-lg-6 col-sm-12 pt-3 smooth">
+    <!-- Double click will mark a note as complete making it uneditable -->
+    <div
+      class="note"
+      data-cy="note-element"
+      @dblclick="note.complete = !note.complete"
+    >
       <div class="options">
         <!-- Toggle Edit Note -->
         <svg
-          v-if="!state.editNote"
+          v-if="!state.editNote && note.complete == false"
           @click="state.editNote = !state.editNote"
           data-cy="toggle-edit-note"
           xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +29,7 @@
         </svg>
         <!-- Save Edit Note -->
         <svg
-          v-else
+          v-else-if="state.editNote && note.complete == false"
           @click="updateNote()"
           data-cy="submit-edit-note"
           xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +107,7 @@
         </div>
         <div class="row text-center">
           <div class="col-12">
-            <p class="note-completed" v-if="note.completed">
+            <p class="note-completed" v-if="note.complete">
               Completed
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -162,11 +167,15 @@ export default {
 <style scoped lang="scss">
 @import "../assets/scss/main.scss";
 
+.smooth {
+  transition: all 0.5s;
+}
+
 .note {
   position: relative;
   max-height: 600px;
   border-radius: 40px;
-
+  user-select: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   transition: all 0.5s;
   @include respond(phone) {
@@ -215,6 +224,7 @@ export default {
 
 .edit-textarea {
   min-height: 200px;
+  width: 100%;
 }
 
 .form-control-sm {
@@ -231,8 +241,5 @@ export default {
 .note-completed {
   font-family: "Montserrat", sans-serif;
   color: $green;
-}
-
-.completed-icon {
 }
 </style>

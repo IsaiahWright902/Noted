@@ -22,12 +22,22 @@
         </div>
         <p>
           A app that helps you keep organized by letting you leave custom
-          tailored notes for yourself.
+          tailored notes for yourself. Simply click "Add New Note" and fill out
+          the required fields. After you have completed a note you can double
+          click to mark it as complete.
         </p>
       </div>
     </div>
+
     <AddNote />
     <div class="row pt-5">
+      <div class="col-12">
+        <p class="search-results" v-if="state.search !== ''">
+          Search Results: {{ notes.length }}
+        </p>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-12">
         <input
           type="text"
@@ -37,7 +47,6 @@
         />
       </div>
     </div>
-
     <div class="row pt-2">
       <Note
         v-for="note in notes"
@@ -71,7 +80,11 @@ export default {
     });
     return {
       state,
-      notes: computed(() => AppState.notes),
+      notes: computed(() =>
+        AppState.notes.filter((note) => {
+          return note.title.toLowerCase().match(state.search.toLowerCase());
+        })
+      ),
     };
   },
 };
@@ -96,5 +109,11 @@ export default {
   height: 30px;
   width: 30px;
   color: $green;
+}
+
+.search-results {
+  float: right;
+  margin-bottom: 0;
+  transition: all 0.5s;
 }
 </style>

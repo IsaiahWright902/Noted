@@ -1,16 +1,18 @@
 <template>
   <div class="row pt-3">
     <div class="col-12">
-      <!-- Button trigger modal -->
-      <button
-        type="button"
-        class="btn btn--green-rounded btn--sm f-right"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-        data-cy="open-note-form"
-      >
-        Add New Note
-      </button>
+      <div class="text-center">
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn--green-rounded btn--sm f-right"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-cy="open-note-form"
+        >
+          Add New Note
+        </button>
+      </div>
 
       <!-- Modal -->
       <div

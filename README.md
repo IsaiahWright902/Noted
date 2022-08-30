@@ -1,8 +1,33 @@
-# Basic Website Template
+# Noted
 
-This is a template for static websites that includes
+Built using vite!
 
-Vite | Vue 3 | Bootstrap 5 | Sass | Sweet Alert 2
+1. To Start this app run `npm run dev` after installing dependencies.
+2. To Test run `npm run test` (Testing configured for port 8080).
+
+# Create A Note
+
+1. Click 'Add New Note' on the home page.
+2. Fill out all required fields.
+3. Click 'Add Note!'.
+
+# Edit A Note
+
+1. Hover the note you wish to edit.
+2. Click the orange pencil and paper.
+3. Make the changes you wish in the input fields.
+4. (Optional) if you wish to cancel an edit hit the red x located at the top right while edit inputs are viewable.
+5. Click the green check mark at the top right.
+
+# Delete A Note
+
+1. Hover the note you wish to delete.
+2. Click the red trashcan.
+3. Confirm the dialogue.
+
+# Mark Note Completed
+
+1. Simply double click the note you wish to mark complete. This will make it uneditable. If you wish to edit a completed noted double click it again to un-mark it complete.
 
 # Deployment
 
