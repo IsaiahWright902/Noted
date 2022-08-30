@@ -26,18 +26,45 @@
         </p>
       </div>
     </div>
+    <AddNote />
+    <div class="row pt-5">
+      <div class="col-12">
+        <input
+          type="text"
+          placeholder="Search Notes..."
+          class="form-control"
+          v-model="state.search"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      {{ notes }}
+    </div>
   </div>
 </template>
 
 <script>
 import { computed, onMounted, reactive } from "vue";
-import { notesService } from "../services/NoteService";
+import { noteService } from "../services/NoteService";
+import { AppState } from "../AppState";
+
+import AddNote from "../components/AddNote.vue";
 export default {
   name: "Home",
+  components: {
+    AddNote,
+  },
   setup() {
-    const state = reactive({});
+    const state = reactive({
+      search: "",
+    });
+    onMounted(async () => {
+      await noteService.getNotes();
+    });
     return {
       state,
+      notes: computed(() => AppState.notes),
     };
   },
 };
