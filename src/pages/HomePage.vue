@@ -1,0 +1,27 @@
+<template>
+  <div class="container">
+    <div class="row pt-5">
+      <div class="col-12 text-center">
+        <h1 class="page-heading">Noted</h1>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { computed, onMounted, reactive } from "vue";
+
+export default {
+  name: "Home",
+  setup() {
+    const state = reactive({});
+    return {
+      state,
+    };
+  },
+};
+</script>
+
+<style lang="scss">
+@import "../assets/scss/main.scss";
+</style>
