@@ -4,7 +4,7 @@
     <div
       class="note"
       data-cy="note-element"
-      @dblclick="note.complete = !note.complete"
+      @dblclick="(note.complete = !note.complete), updateNote()"
     >
       <div class="options">
         <!-- Toggle Edit Note -->
