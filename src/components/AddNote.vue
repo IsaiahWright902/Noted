@@ -7,6 +7,7 @@
         class="btn btn--green-rounded btn--sm f-right"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
+        data-cy="open-note-form"
       >
         Add New Note
       </button>
@@ -40,6 +41,7 @@
                       v-model="state.newNote.title"
                       required
                       type="text"
+                      data-cy="add-note-title-field"
                       class="form-control"
                     />
                   </div>
@@ -52,13 +54,18 @@
                       required
                       cols="30"
                       rows="10"
+                      data-cy="add-note-body-field"
                       class="form-control"
                     ></textarea>
                   </div>
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn--green-rounded btn--sm">
+                <button
+                  data-cy="add-note-submit"
+                  type="submit"
+                  class="btn btn--green-rounded btn--sm"
+                >
                   Add Note!
                 </button>
               </div>

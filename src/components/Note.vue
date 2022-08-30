@@ -1,11 +1,12 @@
 <template>
   <div class="col-xl-4 col-lg-6 col-sm-6 pt-3 smooth">
-    <div class="note">
+    <div class="note" data-cy="note-element">
       <div class="options">
         <!-- Toggle Edit Note -->
         <svg
           v-if="!state.editNote"
           @click="state.editNote = !state.editNote"
+          data-cy="toggle-edit-note"
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
@@ -25,6 +26,7 @@
         <svg
           v-else
           @click="updateNote()"
+          data-cy="submit-edit-note"
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
@@ -74,10 +76,13 @@
             <input
               v-if="state.editNote"
               v-model="note.title"
+              data-cy="edit-note-title"
               type="text"
               class="form-control-sm w-100"
             />
-            <p v-else class="note-title">{{ note.title }}</p>
+            <p v-else data-cy="edited-note-title" class="note-title">
+              {{ note.title }}
+            </p>
           </div>
         </div>
         <div class="row text-center">
@@ -85,11 +90,14 @@
             <textarea
               v-model="note.body"
               v-if="state.editNote"
+              data-cy="edit-note-body"
               class="form-control-sm edit-textarea"
               cols="30"
               rows="10"
             ></textarea>
-            <p v-else class="note-body">{{ note.body }}</p>
+            <p v-else data-cy="edited-note-body" class="note-body">
+              {{ note.body }}
+            </p>
           </div>
         </div>
         <div class="row text-center">

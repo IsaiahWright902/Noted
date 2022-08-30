@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "npx cypress run --spec 'cypress/e2e/spec.cy.js'"
   },
   "dependencies": {
     "bootstrap": "^5.1.3",
@@ -14,6 +15,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.0",
+    "cypress": "^10.6.0",
     "node-sass": "^7.0.1",
     "sass-loader": "^12.4.0",
     "vite": "^2.7.2"

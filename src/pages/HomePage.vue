@@ -39,7 +39,12 @@
     </div>
 
     <div class="row pt-2">
-      <Note v-for="note in notes" :key="note.id" :note="note" />
+      <Note
+        v-for="note in notes"
+        :key="note.id"
+        :note="note"
+        data-cy="notes-render"
+      />
     </div>
   </div>
 </template>
