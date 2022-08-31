@@ -12,12 +12,12 @@ class NoteService {
   // Helper function that sets notes in local storage
   setNotes(notes) {
     localStorage.setItem("notes", JSON.stringify(notes));
+    this.getNotes();
   }
 
   async addNote(newNote) {
     AppState.notes.push(newNote);
     this.setNotes(AppState.notes);
-    this.getNotes();
   }
 
   async updateNote() {
@@ -29,7 +29,6 @@ class NoteService {
     since im modifying data directly from local storage.
     */
     this.setNotes(AppState.notes);
-    this.getNotes();
   }
 
   // Filters out id from notes array and saves it to local storage
